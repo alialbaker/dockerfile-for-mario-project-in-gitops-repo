@@ -17,5 +17,5 @@ jobs:
 
       - name: Build and Push Docker Image
         run: |
-          docker build -t docker.io/raghuthesecurityexpert/supermariogitopsproject:1 .
-          docker push docker.io/raghuthesecurityexpert/supermariogitopsproject:1
+          docker build -t aalbaker/supermario:latest .
+          docker push aalbaker/supermario:latest
