@@ -22,10 +22,10 @@
 
 name: Build and push Super Mario Docker image
 
-on:
-  push:
-    branches: [ main ]
-  workflow_dispatch:
+# on:
+#   push:
+#     branches: [ main ]
+#   workflow_dispatch:
 
 jobs:
   build_push_supermario_docker_image:
