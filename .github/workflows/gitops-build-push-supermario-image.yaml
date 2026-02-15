@@ -1,11 +1,33 @@
-name: "Build and push Super Mario Docker image with static tag to Docker Hub"
+# name: "Build and push Super Mario Docker image with static tag to Docker Hub"
+
+# on:
+#   push:
+#     branches:
+#       - main
+# jobs:
+  
+#   build_push_supermario_docker_image:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: Checkout Repository
+#         uses: actions/checkout@v3
+
+#       - name: Login to Docker Hub
+#         run: echo "${{ secrets.DOCKERHUB_TOKEN }}" | docker login -u "${{ secrets.DOCKERHUB_USERNAME }}" --password-stdin
+
+#       - name: Build and Push Docker Image
+#         run: |
+#           docker build -t aalbaker/supermario:latest .
+#           docker push aalbaker/supermario:latest
+
+name: Build and push Super Mario Docker image
 
 on:
   push:
-    branches:
-      - main
+    branches: [ main ]
+  workflow_dispatch:
+
 jobs:
-  
   build_push_supermario_docker_image:
     runs-on: ubuntu-latest
     steps:
@@ -17,5 +39,5 @@ jobs:
 
       - name: Build and Push Docker Image
         run: |
-          docker build -t aalbaker/supermario:latest .
-          docker push aalbaker/supermario:latest
+          docker build -t aalbaker/supermario:${{ github.run_number }} .
+          docker push aalbaker/supermario:${{ github.run_number }}
